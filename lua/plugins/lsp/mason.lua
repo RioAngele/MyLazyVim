@@ -17,6 +17,7 @@ return {
 			"prettier",
 			"black",
 			"lua-language-server",
+            "bash-language-server",
 			"marksman",
 			"markdownlint",
             "clangd",

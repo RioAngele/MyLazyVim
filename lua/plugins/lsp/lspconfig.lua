@@ -9,37 +9,6 @@ local M = {
 	},
 
 	---@class PluginLspOpts
-	--opts = {
-	--	-- options for vim.diagnostic.config()
-	--	diagnostics = {
-	--		underline = true,
-	--		update_in_insert = false,
-	--		virtual_text = {
-	--			spacing = 4,
-	--			source = "if_many",
-	--			prefix = "●",
-	--			-- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-	--			-- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
-	--			-- prefix = "icons",
-	--		},
-	--		severity_sort = true,
-	--	},
-	--	-- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
-	--	-- Be aware that you also will need to properly configure your LSP server to
-	--	-- provide the inlay hints.
-	--	inlay_hints = {
-	--		enabled = false,
-	--	},
-	--	-- add any global capabilities here
-	--	capabilities = {},
-	--	-- options for vim.lsp.buf.format
-	--	-- `bufnr` and `filter` is handled by the LazyVim formatter,
-	--	-- but can be also overridden when specified
-	--	format = {
-	--		formatting_options = nil,
-	--		timeout_ms = nil,
-	--	},
-	--},
 }
 
 -- 定义函数设置 LSP 键盘映射
@@ -87,7 +56,7 @@ function M.config()
 	-- 配置要启用的 LSP 服务器
 	local servers = {
 		"lua_ls",
-        "clangd",
+		"clangd",
 		--"cssls",
 		--"html",
 		--"tsserver",
@@ -110,10 +79,10 @@ function M.config()
 				{ name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
 			},
 		},
-		virtual_text = true,
-		update_in_insert = false,
-		underline = true,
-		severity_sort = true,
+		-- virtual_text = true,
+		-- update_in_insert = false,
+		-- underline = true,
+		-- severity_sort = true,
 		float = {
 			focusable = true,
 			style = "minimal",
@@ -122,6 +91,22 @@ function M.config()
 			header = "",
 			prefix = "",
 		},
+
+		underline = true,
+		update_in_insert = false,
+		virtual_text = {
+			spacing = 4,
+			source = "if_many",
+			prefix = "●",
+			-- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+			-- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
+			-- prefix = "icons",
+		},
+		severity_sort = true,
+	}
+	local default_format = {
+		formatting_options = nil,
+		timeout_ms = nil,
 	}
 
 	-- 配置默认的诊断显示
@@ -143,6 +128,10 @@ function M.config()
 		local opts = {
 			on_attach = M.on_attach,
 			capabilities = M.common_capabilities(),
+			format = default_format,
+			inlay_hints = {
+				enabled = false,
+			},
 		}
 
 		-- 尝试加载用户自定义的 LSP 设置
@@ -160,6 +149,5 @@ function M.config()
 		lspconfig[server].setup(opts)
 	end
 end
-
 
 return M
