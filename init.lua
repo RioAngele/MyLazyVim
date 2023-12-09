@@ -35,6 +35,7 @@ spec "plugins.treesitter.ts-tag"
 
 spec "plugins.util.start-time"
 spec "plugins.util.persistence"
+spec "plugins.util.trees-hypr"
 
 
 spec "plugins.editor.spectre"

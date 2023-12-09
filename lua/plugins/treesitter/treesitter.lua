@@ -54,7 +54,10 @@ return {
 			"c",
 			"cpp",
 			"diff",
+			"fish",
+			"git_config",
 			"html",
+            "hypr",
 			"javascript",
 			"jsdoc",
 			"json",
@@ -67,6 +70,7 @@ return {
 			"python",
 			"query",
 			"regex",
+			"rasi",
 			"toml",
 			"tsx",
 			"typescript",
@@ -95,6 +99,25 @@ return {
 	},
 	---@param opts TSConfig
 	config = function(_, opts)
+		--dotfile
+		vim.filetype.add({
+			extension = { rasi = "rasi" },
+			pattern = {
+				[".*/waybar/config"] = "jsonc",
+				[".*/mako/config"] = "dosini",
+				[".*/kitty/*.conf"] = "bash",
+			},
+		})
+		local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+		parser_config.hypr = {
+			install_info = {
+				url = "https://github.com/luckasRanarison/tree-sitter-hypr",
+				files = { "src/parser.c" },
+				branch = "master",
+			},
+			filetype = "hypr",
+		}
+
 		if type(opts.ensure_installed) == "table" then
 			---@type table<string, boolean>
 			local added = {}
