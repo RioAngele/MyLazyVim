@@ -22,6 +22,8 @@ spec "plugins.lsp.lint"
 spec "plugins.lang.markdown"
 spec "plugins.lang.clang"
 
+spec "plugins.debug.debug"
+
 spec "plugins.coding.luasnip"
 spec "plugins.coding.cmp"
 spec "plugins.coding.mini-pairs"
