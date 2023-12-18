@@ -38,6 +38,7 @@ spec "plugins.treesitter.ts-tag"
 spec "plugins.util.start-time"
 spec "plugins.util.persistence"
 spec "plugins.util.trees-hypr"
+spec "plugins.util.project"
 
 
 spec "plugins.editor.spectre"
@@ -50,6 +51,5 @@ spec "plugins.editor.todo-comments"
 spec "plugins.editor.telescope"
 
 require "config.lazy"
---vim.cmd[[colorscheme tokyonight-moon]]
 
 
