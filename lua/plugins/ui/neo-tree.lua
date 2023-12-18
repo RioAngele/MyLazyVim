@@ -17,15 +17,15 @@ return {
 			end,
 			desc = "Explorer NeoTree ",
 		},
-		--    {
-		--      "<leader>E",
-		--      function()
-		--        require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-		--      end,
-		--      desc = "Explorer NeoTree (cwd)",
-		--    },
-		--    { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (root dir)", remap = true },
-		--    { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
+		-- {
+		-- 	"<leader>fE",
+		-- 	function()
+		-- 		require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+		-- 	end,
+		-- 	desc = "Explorer NeoTree (cwd)",
+		-- },
+		--     { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (root dir)", remap = true },
+		--     { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
 		{
 			"<leader>ge",
 			function()
@@ -52,28 +52,28 @@ return {
 			end
 		end
 	end,
-	 opts = {
-	   sources = { "filesystem", "buffers", "git_status", "document_symbols" },
-	   open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
-	   filesystem = {
-	     bind_to_cwd = false,
-	     follow_current_file = { enabled = true },
-	     use_libuv_file_watcher = true,
-	   },
-	   window = {
-	     mappings = {
-	       ["<space>"] = "none",
-	     },
-	   },
-	   default_component_configs = {
-	     indent = {
-	       with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-	       expander_collapsed = "",
-	       expander_expanded = "",
-	       expander_highlight = "NeoTreeExpander",
-	     },
-	   },
-	 },
+	opts = {
+		sources = { "filesystem", "buffers", "git_status", "document_symbols" },
+		open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
+		filesystem = {
+			bind_to_cwd = false,
+			follow_current_file = { enabled = true },
+			use_libuv_file_watcher = true,
+		},
+		window = {
+			mappings = {
+				["<space>"] = "none",
+			},
+		},
+		default_component_configs = {
+			indent = {
+				with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+				expander_collapsed = "",
+				expander_expanded = "",
+				expander_highlight = "NeoTreeExpander",
+			},
+		},
+	},
 	-- 用于处理文件移动/重命名的函数
 	config = function(_, opts)
 		local function on_move(data)
@@ -86,7 +86,7 @@ return {
 			{ event = events.FILE_MOVED, handler = on_move },
 			{ event = events.FILE_RENAMED, handler = on_move },
 		})
-		--    require("neo-tree").setup(opts)
+		require("neo-tree").setup(opts)
 		-- 在关闭 lazygit 终端后刷新 git 状态的 autocmd
 		vim.api.nvim_create_autocmd("TermClose", {
 			pattern = "*lazygit",
