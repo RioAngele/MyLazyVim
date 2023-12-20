@@ -1,6 +1,7 @@
 local M = {
 	"akinsho/toggleterm.nvim",
 	version = "*",
+	event = "VeryLazy",
 	opts = {--[[ things you want to change go here]]
 		size = 20,
 		open_mapping = [[<c-\>]],
