@@ -1,4 +1,3 @@
-local Util = require("util.lsp")
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
@@ -74,18 +73,7 @@ return {
 			},
 		},
 	},
-	-- 用于处理文件移动/重命名的函数
 	config = function(_, opts)
-		local function on_move(data)
-			Util.on_rename(data.source, data.destination)
-		end
-
-		local events = require("neo-tree.events")
-		opts.event_handlers = opts.event_handlers or {}
-		vim.list_extend(opts.event_handlers, {
-			{ event = events.FILE_MOVED, handler = on_move },
-			{ event = events.FILE_RENAMED, handler = on_move },
-		})
 		require("neo-tree").setup(opts)
 		-- 在关闭 lazygit 终端后刷新 git 状态的 autocmd
 		vim.api.nvim_create_autocmd("TermClose", {

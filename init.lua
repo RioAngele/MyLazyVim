@@ -39,7 +39,8 @@ spec "plugins.util.start-time"
 spec "plugins.util.persistence"
 spec "plugins.util.trees-hypr"
 spec "plugins.util.project"
-
+spec "plugins.util.mini-hipatternts"
+spec "plugins.util.toggleterm"
 
 spec "plugins.editor.spectre"
 spec "plugins.editor.gitsigns"

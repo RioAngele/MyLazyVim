@@ -92,3 +92,13 @@ vim.o.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
+
+
+
+
+
+-- neovide config
+vim.g.neovide_transparency = 1  --透明度
+vim.o.guifont = "JetBrainsMono Nerd Font:h16" --字体
+vim.g.neovide_scale_factor = 1  --规模
