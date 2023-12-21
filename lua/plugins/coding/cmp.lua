@@ -9,7 +9,12 @@ return {
 		"hrsh7th/cmp-path",
 		"saadparwaiz1/cmp_luasnip",
 		-- codeium
-		M_codeium,
+		{
+			"Exafunction/codeium.nvim",
+			cmd = "Codeium",
+			build = ":Codeium Auth",
+			opts = {},
+		},
 	},
 	opts = function()
 		vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -46,42 +51,57 @@ return {
 				{ name = "codeium", group_index = 1, priority = 100 },
 				{ require("clangd_extensions.cmp_scores") },
 				{ name = "nvim_lsp" },
-
 				{ name = "luasnip" },
 				{ name = "path" },
-			}, {
 				{ name = "buffer" },
 			}),
 			formatting = {
-				format = function(_, item)
+				fields = { "kind", "abbr", "menu" },
+				format = function(entry, item)
 					local icons = require("util.icons").kind
-					if icons[item.kind] then
-						item.kind = icons[item.kind] .. item.kind
-					end
+					-- if icons[item.kind] then
+					-- 	item.kind = icons[item.kind] .. item.kind
+					-- end
+
+					-- This concatonates the icons without the name of the item kind
+					-- item.kind = string.format("%s", icons[item.kind])
+					-- This concatonates the icons with the name of the item kind
+					item.kind = string.format("%s %s", icons[item.kind], item.kind)
+					item.menu = ({
+						nvim_lsp = "[LSP]",
+						luasnip = "[Snippet]",
+						buffer = "[Buffer]",
+						path = "[Path]",
+						codeium = "[AI]",
+					})[entry.source.name]
 					return item
 				end,
 			},
 			experimental = {
+				-- ghost_text = false,
+				-- native_menu = false,
 				ghost_text = {
 					hl_group = "CmpGhostText",
 				},
 			},
+			-- confirm_opts = {
+			-- 	behavior = cmp.ConfirmBehavior.Replace,
+			-- 	select = false,
+			-- },
+			-- window = {
+			-- 	documentation = {
+			-- 		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+			-- 	},
+			-- },
 			sorting = defaults.sorting,
 		}
 	end,
 
 	---@param opts cmp.ConfigSchema
 	config = function(_, opts)
-		-- table.insert(opts.sources, 1, {
-		-- 	name = "codeium",
-		-- 	group_index = 1,
-		-- 	priority = 100,
-		-- })
 		for _, source in ipairs(opts.sources) do
 			source.group_index = source.group_index or 1
 		end
-		--table.insert(opts.sorting.comparators, 1, require("clangd_extensions.cmp_scores"))
-
 		require("cmp").setup(opts)
 	end,
 }

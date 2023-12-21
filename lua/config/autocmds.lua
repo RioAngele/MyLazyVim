@@ -96,8 +96,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = ev.buf }
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = ev.buf , desc = "Go to declaration"})
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = ev.buf , desc = "Go to definition"})
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = ev.buf ,desc = "Show Documentation"})
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = ev.buf ,desc = "References"})
 		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = ev.buf ,desc = "Go to implementation"})
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = ev.buf ,desc = "Show Documentation"})
 		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { buffer = ev.buf ,desc = "Show signature"})
 		vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, { buffer = ev.buf ,desc = "Add workspace folder"})
 		vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, { buffer = ev.buf , desc = "Remove workspace folder"})
@@ -107,7 +108,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, { buffer = ev.buf ,desc = "Type definition"})
 		vim.keymap.set("n", "<space>cr", vim.lsp.buf.rename, { buffer = ev.buf ,desc = "Rename"})
 		vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, { buffer = ev.buf ,desc = "Code action"})
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = ev.buf ,desc = "References"})
 		-- vim.keymap.set("n", "<space>f", function()
 		-- 	vim.lsp.buf.format({ async = true })
 		-- end, { buffer = ev.buf })
