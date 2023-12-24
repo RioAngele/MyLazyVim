@@ -14,6 +14,6 @@ I just want to reproduce the configuration of `Lazyvim` , and learn how to confi
 
 but I always want to make some things for myself which escape the `lazyvim`.
 
-so I decided to leave this project and make a new project for myself .
+so I decided to change this project name
 
-so this one is not updated.
+I do something  for my config.
