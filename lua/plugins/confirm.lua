@@ -1,4 +1,4 @@
-return {
+local M = {
 	"stevearc/conform.nvim",
 	dependencies = { "mason.nvim" },
 	lazy = true,
@@ -50,3 +50,21 @@ return {
 		},
 	},
 }
+
+M.config = function(_, opts)
+	--format on save
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		pattern = "*",
+		callback = function(args)
+			require("conform").format({ bufnr = args.buf })
+		end,
+	})
+
+	local conform = require("conform")
+	conform.setup(opts)
+	conform.formatters["google-java-format"] = {
+		prepend_args = { "-a" },
+	}
+end
+
+return M

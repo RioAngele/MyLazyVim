@@ -57,6 +57,7 @@ function M.config()
 	local servers = {
 		"lua_ls",
 		"clangd",
+        "jdtls",
 		--"cssls",
 		--"html",
 		--"tsserver",

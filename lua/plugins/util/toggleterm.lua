@@ -88,7 +88,7 @@ M.config = function(_, opts)
 
 	vim.api.nvim_set_keymap(
 		"n",
-		"<leader>ut",
+		"<leader>uy",
 		"<cmd>lua _PYTHON_TOGGLE()<CR>",
 		{ noremap = true, silent = true, desc = "Python" }
 	)
