@@ -50,12 +50,11 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = "codeium", group_index = 1, priority = 100 },
-				{ require("clangd_extensions.cmp_scores") },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "path" },
 				{ name = "buffer" },
-                {name = "emoji"},
+				{ name = "emoji" },
 			}),
 			formatting = {
 				fields = { "kind", "abbr", "menu" },
@@ -75,7 +74,7 @@ return {
 						buffer = "[Buffer]",
 						path = "[Path]",
 						codeium = "[AI]",
-                        emoji = "[Emoji]",
+						emoji = "[Emoji]",
 					})[entry.source.name]
 					return item
 				end,
@@ -105,6 +104,7 @@ return {
 		for _, source in ipairs(opts.sources) do
 			source.group_index = source.group_index or 1
 		end
+		table.insert(opts.sorting.comparators, 1, require("clangd_extensions.cmp_scores"))
 		require("cmp").setup(opts)
 	end,
 }

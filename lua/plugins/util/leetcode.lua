@@ -26,7 +26,7 @@ local M = {
 }
 M.config = function(_, opts)
     local map=vim.api.nvim_set_keymap
-    map("n","<leader>uc","<cmd>Leet console<cr>",{desc="leetcode console"})
+    map("n","<leader>ulc","<cmd>Leet console<cr>",{desc="leetcode console"})
     map("n","<leader>ult","<cmd>Leet test<cr>",{desc="leetcode test"})
     map("n","<leader>uls","<cmd>Leet submit<cr>",{desc="leetcode submit"})
     require("leetcode").setup(opts)

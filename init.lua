@@ -36,6 +36,7 @@ spec("plugins.coding.mini-pairs")
 spec("plugins.coding.neogen")
 spec("plugins.coding.surround")
 spec("plugins.coding.ts-context-commentstring")
+spec("plugins.coding.treesj")
 spec("plugins.coding.mini-comment")
 
 spec("plugins.treesitter.treesitter")
