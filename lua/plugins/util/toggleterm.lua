@@ -55,6 +55,18 @@ M.config = function(_, opts)
 		{ noremap = true, silent = true, desc = "Lazygit" }
 	)
 
+	local lazydocker = Terminal:new({ cmd = "lazydocker", hidden = true })
+
+	function _LAZYDOCKER_TOGGLE()
+		lazydocker:toggle()
+	end
+
+	vim.api.nvim_set_keymap(
+		"n",
+		"<leader>ud",
+		"<cmd>lua _LAZYDOCKER_TOGGLE()<CR>",
+		{ noremap = true, silent = true, desc = "lazydocker" }
+	)
 	-- local node = Terminal:new({ cmd = "node", hidden = true })
 	--
 	-- function _NODE_TOGGLE()

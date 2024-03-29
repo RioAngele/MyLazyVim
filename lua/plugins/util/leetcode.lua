@@ -29,6 +29,7 @@ M.config = function(_, opts)
     map("n","<leader>ulc","<cmd>Leet console<cr>",{desc="leetcode console"})
     map("n","<leader>ult","<cmd>Leet test<cr>",{desc="leetcode test"})
     map("n","<leader>uls","<cmd>Leet submit<cr>",{desc="leetcode submit"})
+    map("n","<leader>uld","<cmd>Leet desc<cr>",{desc="leetcode desc"})
     require("leetcode").setup(opts)
 end
 

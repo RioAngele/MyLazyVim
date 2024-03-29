@@ -110,7 +110,7 @@ return {
 		},
 	},
 
-  -- stylua: ignore
+    -- stylua: ignore
     keys = {
         { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
         { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
@@ -129,8 +129,7 @@ return {
         { "<leader>ds", function() require("dap").session() end, desc = "Session" },
         { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
         { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
-
-{ "<leader>td", function() require("neotest").run.run({strategy = "dap"}) end, desc = "Debug Nearest" },
+        { "<leader>td", function() require("neotest").run.run({strategy = "dap"}) end, desc = "Debug Nearest" },
     },
 
 	config = function()

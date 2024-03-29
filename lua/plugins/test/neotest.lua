@@ -9,12 +9,7 @@ return {
 				ignore_wrapper = false, -- whether to ignore maven/gradle wrapper
 			},
 		},
-		-- Example for loading neotest-go with a custom config
-		-- adapters = {
-		--   ["neotest-go"] = {
-		--     args = { "-tags=integration" },
-		--   },
-		-- },
+
 		status = { virtual_text = true },
 		output = { open_on_run = true },
 		quickfix = {

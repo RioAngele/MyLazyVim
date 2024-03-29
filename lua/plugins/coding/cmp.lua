@@ -1,4 +1,3 @@
-local M_codeium = require("plugins.coding.codeium")
 return {
 	"hrsh7th/nvim-cmp",
 	version = false, -- last release is way too old
@@ -10,12 +9,12 @@ return {
 		"hrsh7th/cmp-emoji",
 		"saadparwaiz1/cmp_luasnip",
 		-- codeium
-		{
-			"Exafunction/codeium.nvim",
-			cmd = "Codeium",
-			build = ":Codeium Auth",
-			opts = {},
-		},
+		-- {
+		-- 	"Exafunction/codeium.nvim",
+		-- 	cmd = "Codeium",
+		-- 	build = ":Codeium Auth",
+		-- 	opts = {},
+		-- },
 	},
 	opts = function()
 		vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -49,7 +48,7 @@ return {
 				end,
 			}),
 			sources = cmp.config.sources({
-				{ name = "codeium", group_index = 1, priority = 100 },
+				-- { name = "codeium", group_index = 1, priority = 100 },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "path" },
