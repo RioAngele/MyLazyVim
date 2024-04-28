@@ -49,7 +49,7 @@ spec("plugins.util.trees-hypr")
 spec("plugins.util.project")
 spec("plugins.util.mini-hipatternts")
 spec("plugins.util.toggleterm")
-spec("plugins.util.leetcode")
+-- spec("plugins.util.leetcode")
 spec("plugins.util.harpoon")
 -- spec("plugins.util.image")
 -- spec "plugins.util.translator"
