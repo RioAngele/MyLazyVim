@@ -13,6 +13,7 @@ spec("plugins.ui.notify")
 spec("plugins.ui.bufferline")
 spec("plugins.ui.indent-blankline")
 spec("plugins.ui.mini-indentscope")
+spec("plugins.ui.mini-icons")
 
 spec("plugins.confirm")
 
@@ -25,6 +26,7 @@ spec("plugins.lsp.none-ls")
 spec("plugins.lang.markdown")
 spec("plugins.lang.clang")
 spec("plugins.lang.java")
+-- spec("plugins.lang.c_sharp")
 
 spec("plugins.debug.debug")
 
@@ -35,9 +37,10 @@ spec("plugins.coding.cmp")
 spec("plugins.coding.mini-pairs")
 spec("plugins.coding.neogen")
 spec("plugins.coding.surround")
-spec("plugins.coding.ts-context-commentstring")
+-- spec("plugins.coding.ts-context-commentstring")
 spec("plugins.coding.treesj")
-spec("plugins.coding.mini-comment")
+-- spec("plugins.coding.mini-comment")
+spec("plugins.coding.ts-comment")
 
 spec("plugins.treesitter.treesitter")
 spec("plugins.treesitter.ts-context")

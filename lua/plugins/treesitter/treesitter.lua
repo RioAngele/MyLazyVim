@@ -53,6 +53,7 @@ return {
 			"bash",
 			"c",
 			"cpp",
+            "c_sharp",
 			"diff",
 			"fish",
 			"git_config",

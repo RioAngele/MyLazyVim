@@ -32,6 +32,7 @@ local M = {
 			css = { "prettier" },
 			c = { "clang_format" },
 			cpp = { "clang_format" },
+			c_sharp = { "clang_format" },
 			scss = { "prettier" },
 			less = { "prettier" },
 			html = { "prettier" },
