@@ -26,6 +26,7 @@ spec("plugins.lsp.none-ls")
 spec("plugins.lang.markdown")
 spec("plugins.lang.clang")
 spec("plugins.lang.java")
+spec("plugins.lang.crates")
 -- spec("plugins.lang.c_sharp")
 
 spec("plugins.debug.debug")

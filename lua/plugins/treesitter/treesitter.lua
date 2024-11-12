@@ -77,6 +77,8 @@ return {
 			"query",
 			"regex",
 			"rasi",
+            "rust",
+            "ron",
 			"toml",
 			"rust",
 			"tsx",
